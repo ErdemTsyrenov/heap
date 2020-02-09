@@ -62,3 +62,6 @@ void Min_Heap::sift_down(int index){
     }
     return;
 }
+    //                   2
+    //       3                    5
+    //  4       6              7

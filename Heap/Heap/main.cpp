@@ -22,12 +22,11 @@ int main() {
     Min_Heap heap(array);
 
     vector<pair<int, int>> swaps = heap.get_swaps();
-
+    
+    cout << swaps.size();
     for (auto item : swaps){
         cout << item.first << " " << item.second << endl;
     }
-    if (swaps.empty()){
-        cout << 0 << endl;
-    }
+
     return 0;
 }
