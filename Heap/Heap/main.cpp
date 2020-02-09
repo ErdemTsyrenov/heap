@@ -7,9 +7,27 @@
 //
 
 #include <iostream>
+#include <vector>
+#include "heap.h"
+using namespace std;
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> array(n);
+    for (int i = 0; i < n; i++){
+        cin >> array[i];
+    }
+    Min_Heap heap(array);
+
+    vector<pair<int, int>> swaps = heap.get_swaps();
+
+    for (auto item : swaps){
+        cout << item.first << " " << item.second << endl;
+    }
+    if (swaps.empty()){
+        cout << 0 << endl;
+    }
     return 0;
 }
