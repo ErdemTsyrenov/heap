@@ -21,12 +21,9 @@ int main() {
     }
     Min_Heap heap(array);
 
-    vector<pair<int, int>> swaps = heap.get_swaps();
-    
-    cout << swaps.size();
-    for (auto item : swaps){
-        cout << item.first << " " << item.second << endl;
+    for (int i = 0; i < n; i++){
+        cout << heap.extract_min() << ' ';
     }
-
+    cout << endl;
     return 0;
 }

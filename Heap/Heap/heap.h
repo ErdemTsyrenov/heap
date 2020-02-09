@@ -15,17 +15,16 @@ using namespace std;
 class Min_Heap{
 public:
     Min_Heap();
-    
     Min_Heap(vector<int> a);
     
-
+    void insert(int item);
+    int extract_min();
     
-    void push(int item);
-    
-    vector<int> get_data();
-    vector<pair<int, int>> get_swaps();
+    vector<int> get_data() const;
+    vector<pair<int, int>> get_swaps() const;
 private:
     void sift_down(int index);
+    void sift_up(int index);
     vector<int> data;
     vector<pair<int,int>> swaps;
     

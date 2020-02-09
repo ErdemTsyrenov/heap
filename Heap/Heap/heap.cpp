@@ -18,12 +18,42 @@ Min_Heap::Min_Heap(vector<int> a){
 
 Min_Heap::Min_Heap(){}
 
-vector<int> Min_Heap::get_data(){
+vector<int> Min_Heap::get_data() const{
     return data;
 }
 
-vector<pair<int, int>> Min_Heap::get_swaps(){
+vector<pair<int, int>> Min_Heap::get_swaps() const{
     return swaps;
+}
+
+void Min_Heap::insert(int item){
+    data.push_back(item);
+    sift_up(data.size() - 1);
+    
+}
+
+int Min_Heap::extract_min(){
+    int result = data.front();
+    swap(data[0], data[data.size()-1]);
+    data.pop_back();
+    sift_down(0);
+    return result;
+}
+
+void Min_Heap::sift_up(int index){
+    while (true){
+        int parentIndex = floor((index - 1)/2);
+        if (parentIndex <= 0){
+            if (data[parentIndex] > data[index]){
+                swap(data[parentIndex], data[index]);
+                index = parentIndex;
+            } else{
+                break;
+            }
+        } else{
+            break;
+        }
+    }
 }
 
 void Min_Heap::sift_down(int index){
@@ -60,7 +90,6 @@ void Min_Heap::sift_down(int index){
             }
         }
     }
-    return;
 }
     //                   2
     //       3                    5
